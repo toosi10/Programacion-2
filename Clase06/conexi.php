@@ -11,5 +11,4 @@ if (!$conexion) // Si no se pudo establecer la conexion
 	die("No se pudo establecer la conexion");
 }
 
-
 ?>
