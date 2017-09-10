@@ -65,7 +65,7 @@ function nombresVaronTabla($filas)
 		
 	$s = "";
 		
-	$s = "\n<table class=\"\">\n";
+	$s = "\n<table border = \"1\" class=\"\">\n";
 		
 	while ( $fila = mysqli_fetch_object($filas) )
 	{
