@@ -62,10 +62,12 @@ function nombresVaronTabla($filas)
 {
 		
 	global $conexion;
-		
+	
 	$s = "";
 		
 	$s = "\n<table border = \"1\" class=\"\">\n";
+
+	$s .= "<tr><td>ID</td><td>NOMBRE</td><td>BORRAR</td><td>MODIFICAR</td></tr>";
 		
 	while ( $fila = mysqli_fetch_object($filas) )
 	{
@@ -74,6 +76,15 @@ function nombresVaronTabla($filas)
 		
 		$s .= "<td>" . $fila->{'id'} . "</td>\n";
 		$s .= "<td>" . $fila->{'nombre'} . "</td>\n";
+
+		$clave = "Ezequiel" . $fila->{'id'};
+
+		//$enlace = "<a href=\"CTRLborrarNombre.php?id=" . md5($fila->{'id'}) . "\">borrar</a>"; // md5() encripta
+		$enlace = "<a href=\"CTRLborrarNombre.php?id=" . sha1($clave) . "\">borrar</a>"; //sha1() encripta
+		$s .= "<td>" . $enlace . "</td>";
+
+		$enlace = "<a href=\"CTRLmodificarNombre.php?id=" . sha1($clave) . "\">modificar</a>";
+		$s .= "<td>" . $enlace . "</td>";
 		
 		$s .= "\n</tr>\n";
 		
